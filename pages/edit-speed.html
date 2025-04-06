@@ -15,7 +15,7 @@
   <main class="container py-5 text-center">
     <div class="fs-2 mb-3 row">
       <h1 class="text-center fw-bold mb-5">
-        <button class="bi bi-chevron-left" onclick="location.href='edit-info.html'"></button>
+        <button class="bi bi-chevron-left" onclick="location.href='mypage.html'"></button>
         <span>보행속도 수정</span>
       </h1>
     </div>
@@ -80,31 +80,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../js/common.js"></script>
   <script>
-    function saveUserInfo() {
-      const name = document.getElementById('user-name').value;
-      const birth = parseInt(document.getElementById('user-birth').value, 10); // 문자열을 숫자로 변환
-      const gender = document.getElementById('user-gender').value;
-  
-      // 현재 연도 기준 나이 계산
-      const currentYear = new Date().getFullYear();
-      const age = currentYear - birth;
-  
-      // 나이대 계산 예: 25살 → "20대"
-      const ageGroup = Math.floor(age / 10) * 10 + '대';
-  
-      // 로컬스토리지에 저장
-      localStorage.setItem('userName', name);
-      localStorage.setItem('userBirth', birth.toString());
-      localStorage.setItem('userGender', gender === 'male' ? '남성' : '여성');
-      localStorage.setItem('userAgeGroup', ageGroup);
-    }
-  </script>
-  
-  <script>
     const user = {
-      name: localStorage.getItem('userName') || '김민지',
-      age: localStorage.getItem('userAgeGroup') || '20대',
-      gender: localStorage.getItem('userGender') || '여성',
+      name: localStorage.getItem('userName') && localStorage.getItem('userName') !== 'null' 
+            ? localStorage.getItem('userName') : '김민지',
+      ageGroup: localStorage.getItem('userAgeGroup') && localStorage.getItem('userAgeGroup') !== 'null'
+            ? localStorage.getItem('userAgeGroup') : '20대',
+      gender: localStorage.getItem('userGender') && localStorage.getItem('userGender') !== 'null'
+            ? localStorage.getItem('userGender') : '여성',
       speeds: {
         minWalk: parseFloat(localStorage.getItem('minWalk')) || 5.0,
         minFastWalk: parseFloat(localStorage.getItem('minFastWalk')) || 6.5,
@@ -115,10 +97,13 @@
       }
     };
 
-    document.getElementById('userName').textContent = user.name;
-    document.getElementById('userAge').textContent = user.age;
-    document.getElementById('userGender').textContent = user.gender;
 
+  
+    // 사용자 정보 표시
+    document.getElementById('userName').textContent = user.name;
+    document.getElementById('userAge').textContent = user.ageGroup;
+    document.getElementById('userGender').textContent = user.gender;
+  
     // 속도 값 렌더링
     document.getElementById('minWalkVal').textContent = user.speeds.minWalk;
     document.getElementById('minFastWalkVal').textContent = user.speeds.minFastWalk;
@@ -126,32 +111,34 @@
     document.getElementById('maxWalkVal').textContent = user.speeds.maxWalk;
     document.getElementById('maxFastWalkVal').textContent = user.speeds.maxFastWalk;
     document.getElementById('maxRunVal').textContent = user.speeds.maxRun;
-
+  
     function saveSpeed() {
       const minSpeedId = document.querySelector('input[name="minspeed"]:checked')?.id;
       const maxSpeedId = document.querySelector('input[name="maxspeed"]:checked')?.id;
-
+  
       if (!minSpeedId || !maxSpeedId) {
-        alert("최저/최고 속도를 모두 선택해주세요");
+        const modal = new bootstrap.Modal(document.getElementById("speedErrorModal"));
+        modal.show();
         return;
       }
-
+  
       const minVal = user.speeds[minSpeedId];
       const maxVal = user.speeds[maxSpeedId];
-
+  
       if (minVal >= maxVal) {
         const modal = new bootstrap.Modal(document.getElementById("speedErrorModal"));
         modal.show();
         return;
       }
-
+  
       localStorage.setItem('selectedMinSpeed', minSpeedId);
       localStorage.setItem('selectedMaxSpeed', maxSpeedId);
       localStorage.setItem('minSpeedValue', minVal);
       localStorage.setItem('maxSpeedValue', maxVal);
-
-      window.location.href = "edit-info.html";
+  
+      window.location.href = "mypage.html"; // edit-info.html → mypage.html 로 변경
     }
   </script>
+    
 </body>
 </html>

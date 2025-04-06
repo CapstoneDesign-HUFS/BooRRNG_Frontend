@@ -1,7 +1,16 @@
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 body {
   background-color: #f8f9fa;
   font-family: 'Pretendard', sans-serif;
   padding: 2rem;
+  padding-top: 70px; /* fixed된 헤더 아래에 내용이 나오도록 */
 }
 
 .terms-container {
@@ -37,3 +46,6 @@ body {
 .terms-box li {
   list-style-type: disc;
 }
+
+
+
