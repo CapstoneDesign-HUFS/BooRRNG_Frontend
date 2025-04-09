@@ -57,6 +57,74 @@ Global Style Import
   color: #fff !important;
 }
 
+.speedbox label {
+  color: #555 !important; /* ✅ 회색 텍스트 */
+  font-weight: 500;
+  text-align: center;
+}
+.speedbox label span {
+  color: #555 !important;
+  white-space: nowrap;
+}
+
+.button-row {
+  gap: 1rem; /* 버튼 간 간격 적당히 조절 */
+}
+
+.fixed-size-btn {
+  width: 180px;              /* ✅ 추가: 두 버튼 동일 너비 고정 */
+  height: 44px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-main {
+  background-color: #a5e346;
+  color: white;
+  border: none;
+}
+
+.btn-cancel {
+  background-color: #dee2e6;
+  color: #333;
+  border: none;
+}
+
+.btn-cancel,
+.btn-main {
+  margin-top: 1rem;     /* 또는 Bootstrap의 `mt-3` 클래스 사용 가능 */
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;           /* 버튼 사이 간격 */
+  margin-top: 2rem;
+}
+
+.button-group .btn {
+  width: 160px;
+  height: 48px;
+  border-radius: 2rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-wrapper {
+  display: flex !important;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
 /* =================================== */
 /* 모바일 전용 반응형 스타일 (최대 576px) */
@@ -99,6 +167,11 @@ Global Style Import
   .speedbox > .col-6 {
     flex: 1 1 calc((100% - 2rem) / 3);  /* 3등분 계산 (gap 고려) */
     min-width: 0;                       /* 너무 커지지 않게 */
+  }
+
+  .fixed-size-btn {
+    width: 100%;
+    max-width: 180px;
   }
 
 }

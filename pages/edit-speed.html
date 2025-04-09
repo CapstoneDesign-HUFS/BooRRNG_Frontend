@@ -15,8 +15,6 @@
   <main class="container py-5 text-center">
     <div class="fs-2 mb-3 row">
       <h1 class="text-center fw-bold mb-5">
-        <button class="bi bi-chevron-left" onclick="location.href='mypage.html'"></button>
-        <span>보행속도 수정</span>
       </h1>
     </div>
 
@@ -31,15 +29,15 @@
     <div class="d-flex justify-content-center row flex-wrap gap-3 mb-4 speedbox">
       <div class="col-6 col-md-3">
         <input type="radio" name="minspeed" id="minWalk" class="btn-check">
-        <label class="btn btn-outline-primary w-100" for="minWalk">걷기<br><span id="minWalkVal"></span><br> km/h</label>
+        <label class="btn btn-outline-primary w-100" for="minWalk">걷기<br><span id="minWalkVal"></span>km/h</label>
       </div>
       <div class="col-6 col-md-3">
         <input type="radio" name="minspeed" id="minFastWalk" class="btn-check">
-        <label class="btn btn-outline-primary w-100" for="minFastWalk">경보<br><span id="minFastWalkVal"></span><br> km/h</label>
+        <label class="btn btn-outline-primary w-100" for="minFastWalk">경보<br><span id="minFastWalkVal"></span>km/h</label>
       </div>
       <div class="col-6 col-md-3">
         <input type="radio" name="minspeed" id="minRun" class="btn-check">
-        <label class="btn btn-outline-primary w-100" for="minRun">뛰기<br><span id="minRunVal"></span><br> km/h</label>
+        <label class="btn btn-outline-primary w-100" for="minRun">뛰기<br><span id="minRunVal"></span>km/h</label>
       </div>
     </div>
 
@@ -48,19 +46,24 @@
     <div class="d-flex justify-content-center row flex-wrap gap-3 mb-4 speedbox">
       <div class="col-6 col-md-3">
         <input type="radio" name="maxspeed" id="maxWalk" class="btn-check">
-        <label class="btn btn-outline-primary w-100" for="maxWalk">걷기<br><span id="maxWalkVal"></span><br> km/h</label>
+        <label class="btn btn-outline-primary w-100" for="maxWalk">걷기<br><span id="maxWalkVal"></span>km/h</label>
       </div>
-      <div class="col-6 col-md-3">
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
         <input type="radio" name="maxspeed" id="maxFastWalk" class="btn-check">
-        <label class="btn btn-outline-primary w-100" for="maxFastWalk">경보<br><span id="maxFastWalkVal"></span><br> km/h</label>
+        <label class="btn btn-outline-primary w-100" for="maxFastWalk">
+          경보<br><span id="maxFastWalkVal"></span>km/h
+        </label>
+        <button class="btn fixed-size-btn btn-cancel mt-2 mb-2" onclick="location.href='mypage.html'">취소</button>
       </div>
-      <div class="col-6 col-md-3">
+      
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
         <input type="radio" name="maxspeed" id="maxRun" class="btn-check">
-        <label class="btn btn-outline-primary w-100" for="maxRun">뛰기<br><span id="maxRunVal"></span><br> km/h</label>
+        <label class="btn btn-outline-primary w-100" for="maxRun">
+          뛰기<br><span id="maxRunVal"></span>km/h
+        </label>
+        <button class="btn fixed-size-btn btn-main mt-2 mb-2" onclick="saveSpeed()">저장</button>
       </div>
     </div>
-
-    <button class="btn btn-main w-100 rounded-pill mt-4" onclick="saveSpeed()">저장하기</button>
   </main>
 
   <footer id="footer"></footer>
