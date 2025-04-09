@@ -56,21 +56,8 @@ Global Style Import
   background-color: var(--color-primary) !important;
   color: #fff !important;
 }
-.speedbox {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  width: 100%;
-  box-sizing: border-box;
-}
 
-.speedbox > .col-6 {
-  flex: 0 0 calc((100% - 2rem) / 3); /* 3등분 - gap 고려 */
-  min-width: 100px;
-  box-sizing: border-box;
-}
+
 
 /* =================================== */
 /* 모바일 전용 반응형 스타일 (최대 576px) */
@@ -110,9 +97,6 @@ Global Style Import
     font-size: 1rem;
   }
 
-  .speedbox > .col-6 {
-    width: 130px !important;      /* 모바일에서 고정 */
-  }
 }
 
 
