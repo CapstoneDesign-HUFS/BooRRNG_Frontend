@@ -57,7 +57,22 @@ Global Style Import
   color: #fff !important;
 }
 
+.speedbox {
+  display: flex;
+  flex-wrap: nowrap;           /* 줄바꿈 방지 */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  gap: 1rem;
+  box-sizing: border-box;
+  padding-bottom: 0.5rem;
+}
 
+.speedbox > .col-6 {
+  flex: 1 1 calc((100% - 2rem) / 3);  /* 3등분 계산 (gap 고려) */
+  min-width: 0;                       /* 너무 커지지 않게 */
+}
 
 /* =================================== */
 /* 모바일 전용 반응형 스타일 (최대 576px) */
