@@ -112,6 +112,11 @@ Global Style Import
     font-size: 1rem;
   }
 
+  .speedbox > .col-6 {
+    flex: 1 1 calc((100% - 2rem) / 3);  /* 3등분 계산 (gap 고려) */
+    min-width: 0;                       /* 너무 커지지 않게 */
+  }
+
 }
 
 
