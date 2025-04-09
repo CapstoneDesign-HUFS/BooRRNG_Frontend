@@ -111,7 +111,7 @@ Global Style Import
   }
 
   .speedbox > .col-6 {
-    flex: 0 0 calc((100% - 2rem) / 3); /* 여전히 3등분 유지 */
+    width: 130px !important;      /* 모바일에서 고정 */
   }
 }
 
