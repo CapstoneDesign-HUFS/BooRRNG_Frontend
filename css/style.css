@@ -28,6 +28,27 @@ Global Style Import
 @import url('./pages/terms.css');
 @import url('./pages/edit-info.css');
 
+header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+/* navbar 설정 */
+.navbar {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  z-index: 1000;
+  position: relative;
+}
+
+body{
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
 
 /* override Bootstrap primary button 색상 */
 .btn {
@@ -174,6 +195,25 @@ Global Style Import
     max-width: 180px;
   }
 
+}
+
+@media (min-width: 576px) and (max-width: 770px) {
+  .speedbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem; /* 버튼 간 여백 */
+  }
+
+  .speedbox > .col-6 {
+    flex: 1 1 calc((100% - 2rem) / 3);
+    max-width: calc((100% - 2rem) / 3);
+    min-width: 0;
+  }
+
+  .speedbox label {
+    width: 100%;
+  }
 }
 
 
