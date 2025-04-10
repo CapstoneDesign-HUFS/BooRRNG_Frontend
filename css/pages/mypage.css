@@ -65,17 +65,6 @@
     width: 80px; /* 가로폭만 좁힘 */
     margin-left: 10px;
   }
-
-  @media (max-width: 576px) {
-    .speedbox label {
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
-  
-    .speedbox label span {
-      font-size: 0.9rem;
-    }
-  }
   
 
 
