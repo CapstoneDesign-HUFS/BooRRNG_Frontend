@@ -1,138 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Signup</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>회원가입</title>
+  <link rel="stylesheet" href="../css/pages/signup.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header><!-- 공통 헤더 --></header>
 
-  <main class="container py-5 d-flex flex-column justify-content-center align-items-center text-center flex-grow-1">
-    <img src="../assets/images/ttikka.png" alt="회원가입 이미지" class="signup-img mb-4">
-    <h2 class="signup-title mb-4">회원가입</h2>
+  <main class="signup-container">
+    <div class="logo-circle">
+      <img src="../assets/images/ttikkaA.png" alt="로고" class="logo-img" />
+    </div>
 
-    <form class="signup-form w-100 text-start" style="max-width: 340px;">
-      <!-- 아이디 -->
-      <div class="mb-3">
-        <div class="input-group">
-          <input type="text" id="userId" class="form-control" placeholder="아이디 입력" required>
-          <button class="btn btn-outline-secondary" type="button">중복확인</button>
-        </div>
+    <h2 class="signup-title">회원가입</h2>
+
+    <form class="signup-form" onsubmit="handleSignup(event)">
+
+      <div class="id-row">
+        <input type="text" id="signupId" placeholder="아이디" required />
+        <button type="button" class="btn-check">중복확인</button>
       </div>
 
-      <!-- 비밀번호 -->
-      <div class="mb-3">
-        <input type="password" id="password" class="form-control" placeholder="비밀번호 입력" required>
+      <div class="pw-box">
+        <input type="password" id="signupPw" placeholder="비밀번호" required />
+        <span class="toggle-password" onclick="togglePassword('signupPw')">👁</span>
       </div>
 
-      <!-- 비밀번호 확인 -->
-      <div class="mb-3">
-        <input type="password" id="passwordConfirm" class="form-control" placeholder="비밀번호 확인" required>
+      <div class="pw-box">
+        <input type="password" id="signupPwConfirm" placeholder="비밀번호 확인" required />
+        <span class="toggle-password" onclick="togglePassword('signupPwConfirm')">👁</span>
       </div>
 
-      <!-- 이름 -->
-      <div class="mb-3">
-        <input type="text" id="username" class="form-control" placeholder="이름" required>
-      </div>
+      <input type="text" id="signupName" placeholder="이름" required />
 
-      <!-- 출생년도 + 성별 -->
-      <div class="mb-3 d-flex gap-2">
-        <select id="birthYear" class="form-select text-center shadow-sm rounded-pill" required>
-          <option selected disabled>출생년도 선택</option>
-        </select>
-        <select id="sexselect" class="form-select text-center shadow-sm rounded-pill" required>
-          <option selected disabled>성별</option>
-          <option value="여성">여성</option>
+      <div class="row">
+        <input type="text" id="signupBirth" placeholder="출생년도" required />
+        <select id="signupGender" required>
+          <option value="">성별</option>
           <option value="남성">남성</option>
+          <option value="여성">여성</option>
         </select>
       </div>
 
-      <!-- 약관 동의 -->
-      <div class="form-check mb-4">
-        <input class="form-check-input" type="checkbox" id="agreeCheck">
-        <label class="form-check-label" for="agreeCheck">
-          개인정보 활용 약관에 동의합니다. <a href="terms.html">약관 보기</a>
-        </label>
-      </div>
-
-      <!-- 가입하기 -->
-      <button type="submit" class="btn btn-primary w-100 rounded-pill">가입하기</button>
-
-      <!-- 로그인 링크 -->
-      <div class="text-center mt-3">
-        <small class="text-muted">이미 가입하셨나요? <a href="login.html">로그인</a></small>
-      </div>
+      <label class="checkbox-area">
+        <input type="checkbox" id="agreeCheck" />
+        <span>약관에 동의합니다. <a href="terms.html">약관 보기</a></span>
+      </label>
+            
+      
+  
+      <button type="submit" class="btn-submit">회원가입</button>
     </form>
+
+    <p class="login-link">이미 가입하셨나요? <a href="login.html">로그인하기</a></p>
   </main>
 
-  <footer id="footer"><!-- 공통 푸터 --></footer>
-
-  <!-- 🚨 비밀번호 불일치 모달 -->
-  <div class="modal fade" id="pwMismatchModal" tabindex="-1" aria-labelledby="pwMismatchLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-center p-4">
-        <h5 class="modal-title" id="pwMismatchLabel">비밀번호 오류</h5>
-        <p class="mt-2">비밀번호가 서로 일치하지 않습니다.</p>
-        <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">확인</button>
-      </div>
+      <!-- 🚨 비밀번호 불일치 모달 -->
+  <div class="modal hidden" id="pwErrorModal">
+    <div class="modal-box">
+      <h3>비밀번호 오류</h3>
+      <p>비밀번호가 일치하지 않습니다.</p>
+      <button onclick="closeModal('pwErrorModal')">확인</button>
     </div>
   </div>
 
   <!-- 🚨 약관 미동의 모달 -->
-  <div class="modal fade" id="agreeModal" tabindex="-1" aria-labelledby="agreeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-center p-4">
-        <h5 class="modal-title" id="agreeModalLabel">안내</h5>
-        <p class="mt-2">개인정보 수집 및 이용에 동의하셔야 가입이 가능합니다.</p>
-        <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">확인</button>
-      </div>
+  <div class="modal hidden" id="agreeErrorModal">
+    <div class="modal-box">
+      <h3>안내</h3>
+      <p>약관에 동의하셔야 회원가입이 가능합니다.</p>
+      <button onclick="closeModal('agreeErrorModal')">확인</button>
     </div>
   </div>
 
-  <!-- JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/common.js"></script>
-  <script src="../js/include.js"></script>
-    <script>
-        // 출생년도 자동 생성
-      const birthSelect = document.getElementById("birthYear");
-      const currentYear = new Date().getFullYear();
-      const startYear = 1950;
-      const endYear = currentYear - 10;
+    <!-- ✅ 회원가입 성공 모달 -->
+  <div class="modal hidden" id="successModal">
+    <div class="modal-box">
+      <h3>회원가입 완료</h3>
+      <p>회원가입이 성공적으로 완료되었습니다.<br>로그인 페이지로 이동합니다.</p>
+      <button onclick="goToLogin()">확인</button>
+    </div>
+  </div>
 
-      for (let year = endYear; year >= startYear; year--) {
-        const option = document.createElement("option");
-        option.value = year;
-        option.textContent = year + "년";
-        birthSelect.appendChild(option);
-      }
 
-      // 회원가입 폼 제출 이벤트
-      document.querySelector(".signup-form").addEventListener("submit", function (e) {
-        e.preventDefault();
 
-        const pw = document.getElementById("password").value;
-        const pwConfirm = document.getElementById("passwordConfirm").value;
-        const agreed = document.getElementById("agreeCheck").checked;
 
-        if (pw !== pwConfirm) {
-          new bootstrap.Modal(document.getElementById("pwMismatchModal")).show();
-          return;
-        }
-
-        if (!agreed) {
-          new bootstrap.Modal(document.getElementById("agreeModal")).show();
-          return;
-        }
-
-        // ✅ 성공 시 이동 (예시)
-        alert("회원가입 성공!");
-        // location.href = "welcome.html";
-      });
-    </script>
-
-    </body>
-  </html>
+  <script src="../js/signup.js"></script>
+</body>
+</html>

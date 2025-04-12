@@ -1,61 +1,132 @@
-/* login.css 스타일 */
-/* ====================
-Login Page Style
-   ==================== */
-.login-img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    background-color: #f2f2f2;
-    border-radius: var(--radius-base);
-    box-shadow: var(--shadow-sm);
-  }
-  
-  .login-title {
-    font-size: var(--font-size-title);
-    color: var(--color-dark);
-    font-weight: 600;
-  }
-  
-  .login-form .form-control {
-    border-radius: var(--radius-base);
-  }
-  
-  .toggle-password {
-    font-size: 14px;
-    padding: 2px 6px;
-    cursor: pointer;
-  }
-
-/* input padding-right 확보 */
-#loginPw {
-  padding-right: 40px;
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #e8fbe4, #f5fff4);
+  font-family: 'Arial', sans-serif;
 }
 
-/* 눈 아이콘 버튼 위치 보정 */
-.btn-eye {
+.login-wrapper {
+  max-width: 360px;
+  margin: 60px auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.logo-circle {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #baf5ce 0%, #a0e5b5 70%, #85d19a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    inset 0 4px 8px rgba(255, 255, 255, 0.5),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3dbd5d;
+  margin: 16px 0 30px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.login-form input {
+  padding: 14px;
+  font-size: 15px;
+  border: 1px solid #d2e7cf;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.password-box {
+  position: relative;
+  width: 100%;
+}
+
+.password-box input {
+  width: 100%;
+  box-sizing: border-box; /* ✅ padding 포함해 정확히 맞추기 */
+}
+
+
+.toggle-password {
   position: absolute;
+  right: 14px;
   top: 50%;
-  right: 12px;
   transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  padding: 0;
-  line-height: 1;
-  font-size: 18px;
-  color: var(--color-muted);
   cursor: pointer;
-  z-index: 10;
+  font-size: 18px;
+  color: #888;
 }
 
-.btn-eye:hover {
-  color: var(--color-primary);
+.caps-warning {
+  color: red;
+  font-size: 13px;
+  margin-top: -10px;
 }
 
-.text-muted > a {
-  color: var(--color-primary);
+.hidden {
+  display: none;
 }
 
-.text-muted > a:hover {
-  text-decoration: underline;
+.btn-login {
+  padding: 14px;
+  background: linear-gradient(to right, #a4eb92, #57d26a);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.signup-link {
+  font-size: 14px;
+  margin-top: 20px;
+  color: #555;
+}
+
+.signup-link a {
+  color: #3dbd5d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
 }

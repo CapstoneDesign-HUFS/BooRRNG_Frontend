@@ -1,66 +1,200 @@
-/* signup.css 스타일 */
-.signup-img {
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #e8fbe4, #f5fff4);
+}
+
+.signup-container {
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.logo-circle {
   width: 120px;
   height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #baf5ce 0%, #a0e5b5 70%, #85d19a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
   object-fit: contain;
-  background-color: #f3f3f3;
-  border-radius: var(--radius-base);
-  box-shadow: var(--shadow-sm);
 }
 
 .signup-title {
-  font-size: var(--font-size-title);
-  font-weight: 600;
-  color: var(--color-dark);
+  font-size: 28px;
+  font-weight: bold;
+  color: #32b768;
+  margin-bottom: 30px;
 }
 
-.signup-form .form-control,
-.signup-form .form-select {
-  border-radius: var(--radius-base);
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.signup-form .form-control,
-.signup-form .form-select,
-.signup-form .btn {
-  border-radius: var(--radius-base);
-  font-size: 16px;
-}
-
-.signup-form .input-group .btn {
-  padding: 0 16px;
-}
-
-.signup-form .form-check-label {
+.signup-form input,
+.signup-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   font-size: 14px;
+  width: 100%;
 }
 
-.signup-form .btn-primary {
-  margin-top: 16px;
+.id-row {
+  display: flex;
+  gap: 8px;
 }
 
-
-.form-check-label a {
-  color: var(--color-primary);
-}
-.form-check-label a:hover {
-  text-decoration: underline;
+.id-row input {
+  flex: 1;
 }
 
-.btn-outline-secondary {
-  background-color: var(--color-primary);
-  color: #fff;
-  border-color: var(--color-primary);
+.btn-check {
+  background: #84d96d;
+  border: none;
+  color: white;
+  padding: 0 16px;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
-.btn-outline-secondary:hover {
-  background-color: var(--color-primary-hover);
+.pw-box {
+  position: relative;
 }
 
-.form-select {
-  background-color: #fff;
-  border: 2px solid var(--color-primary);
+.pw-box input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.checkbox-area {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 4px; /* ✅ 기존보다 좁게 조정 */
+  margin-top: 12px;
+  cursor: pointer;
   color: #333;
-  font-weight: 500;
-  transition: all 0.3s ease-in-out;
 }
 
+.checkbox-area input[type="checkbox"] {
+  margin-right: 4px; /* ✅ 텍스트와 붙이기 */
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox-area span {
+  white-space: nowrap;
+}
+
+.checkbox-area a {
+  color: #3dbd5d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+
+.checkbox-label {
+  white-space: nowrap; /* ✅ 한 줄 강제 유지 */
+  color: #333;
+}
+
+.btn-submit {
+  padding: 14px;
+  background: linear-gradient(to right, #a4eb92, #57d26a);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-link {
+  font-size: 13px;
+  color: #666;
+  margin-top: 15px;
+}
+
+.login-link a {
+  color: #3dbd5d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-box h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.modal-box p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+.modal-box button {
+  padding: 10px 20px;
+  background-color: #32b768;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

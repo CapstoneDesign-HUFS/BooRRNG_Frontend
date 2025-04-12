@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>초기 보행속도 설정</title>
+  <link rel="stylesheet" href="../css/pages/initial-speed.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header id="header"></header>
+
+  <main class="container">
+    <div class="user-summary">
+      <u id="userName">홍길동</u> 님을 위한<br>
+      <u id="userAge">30대</u> <u id="userGender">남성</u><br>
+      평균 보행속도 추천
+    </div>
+
+    <!-- 최저속도 -->
+    <div class="section">
+      <div class="section-title">최저속도를 설정해주세요</div>
+      <div class="speed-options">
+        <label><input type="radio" name="minspeed" id="minWalk"><span>걷기<br><span id="minWalkVal"></span></span></label>
+        <label><input type="radio" name="minspeed" id="minFastWalk"><span>빠르게 걷기<br><span id="minFastWalkVal"></span></span></label>
+        <label><input type="radio" name="minspeed" id="minRun"><span>뛰기<br><span id="minRunVal"></span></span></label>
+      </div>
+    </div>
+
+    <!-- 최고속도 -->
+    <div class="section">
+      <div class="section-title">최고속도를 설정해주세요</div>
+      <div class="speed-options">
+        <label><input type="radio" name="maxspeed" id="maxWalk"><span>걷기<br><span id="maxWalkVal"></span></span></label>
+        <label><input type="radio" name="maxspeed" id="maxFastWalk"><span>빠르게 걷기<br><span id="maxFastWalkVal"></span></span></label>
+        <label><input type="radio" name="maxspeed" id="maxRun"><span>뛰기<br><span id="maxRunVal"></span></span></label>
+      </div>
+    </div>
+
+    <!-- 버튼 -->
+    <div class="button-group">
+      <button onclick="saveSpeed()" class="btn save">다음으로</button>
+    </div>
+
+    <!-- 모달 -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <h5>속도 설정 오류</h5>
+        <p>최저속도는 최고속도보다 작아야 합니다.</p>
+        <button onclick="closeModal()">확인</button>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+  <script src="../js/initial-speed.js"></script>
+</body>
+</html>
