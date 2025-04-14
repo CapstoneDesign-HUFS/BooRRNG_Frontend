@@ -104,21 +104,23 @@ body {
   
   
   .button-group {
-    margin-top: 50px; /* 최고속도와의 거리 증가 */
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
-    gap: 16px; /* 버튼 사이 간격 */
-    padding: 0 8px; /* 양쪽 여백 약간 추가 */
+    gap: 12px;
+    width: calc(100% - 40px); /* speed-options와 동일한 너비 확보 */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .btn {
-    flex: 1; /* 양쪽 버튼이 동일 비율로 늘어남 */
+    flex: 1;
     padding: 14px;
     font-size: 16px;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    max-width: none; /* 필요 시 제한 해제 */
   }
   
   .btn.cancel {
@@ -131,6 +133,7 @@ body {
     color: white;
     font-weight: bold;
   }
+  
   
   
   .btn.save {

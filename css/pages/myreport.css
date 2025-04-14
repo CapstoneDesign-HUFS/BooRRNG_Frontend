@@ -11,10 +11,14 @@
     padding-bottom: 80px; /* 하단 네비게이션 바 공간 확보 */
   }
 
-  h1{
-    text-align:center;
-    color:#32b768;
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 900;
+    margin: 40px 0 40px 0;
+    color: linear-gradient(90deg, #32b768, #a4eb92);
   }
+  
   
   .report-container {
     max-width: 800px;

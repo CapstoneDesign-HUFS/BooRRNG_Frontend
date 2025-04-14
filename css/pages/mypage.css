@@ -20,14 +20,19 @@ body {
 .profile-circle {
   width: 100px;
   height: 100px;
-  background: #32b768;
+  background: linear-gradient(135deg, #a4eb92, #57d26a); /* 💡그라데이션 추천 */
   border-radius: 50%;
+  border: 6px solid white; /* ✅ 하얀 테두리 추가 */
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
 }
+
 
 .profile-circle .initial {
   font-size: 36px;
