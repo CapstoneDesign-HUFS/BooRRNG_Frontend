@@ -1,21 +1,25 @@
+/* 기본 설정 */
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Arial', sans-serif;
   background: linear-gradient(to bottom, #e8fbe4, #f5fff4);
+  color: #2e2e2e;
 }
 
+/* 컨테이너 */
 .signup-container {
-  max-width: 360px;
+  max-width: 480px;
   margin: 0 auto;
   padding: 50px 20px;
   text-align: center;
 }
 
+/* 로고 */
 .logo-circle {
   width: 120px;
   height: 120px;
@@ -34,13 +38,18 @@ body {
   object-fit: contain;
 }
 
+/* 제목 */
 .signup-title {
   font-size: 28px;
   font-weight: bold;
-  color: #32b768;
+  background: linear-gradient(to right, #3dbd5d, #57d26a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   margin-bottom: 30px;
 }
 
+/* 폼 */
 .signup-form {
   display: flex;
   flex-direction: column;
@@ -56,6 +65,7 @@ body {
   width: 100%;
 }
 
+/* 아이디 입력 및 중복확인 버튼 */
 .id-row {
   display: flex;
   gap: 8px;
@@ -72,8 +82,10 @@ body {
   padding: 0 16px;
   border-radius: 10px;
   font-weight: bold;
+  cursor: pointer;
 }
 
+/* 비밀번호 입력 */
 .pw-box {
   position: relative;
 }
@@ -91,29 +103,38 @@ body {
   cursor: pointer;
 }
 
-.row {
+.birth-gender {
   display: flex;
   gap: 10px;
+  width: 100%;
 }
 
+.birth-gender input {
+  flex: 2; /* 출생년도가 더 길게 */
+  min-width: 0;
+}
+
+.birth-gender select {
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* 약관 동의 */
 .checkbox-area {
   display: flex;
   align-items: center;
   font-size: 14px;
-  gap: 4px; /* ✅ 기존보다 좁게 조정 */
+  gap: 4px;
   margin-top: 12px;
   cursor: pointer;
   color: #333;
 }
 
 .checkbox-area input[type="checkbox"] {
-  margin-right: 4px; /* ✅ 텍스트와 붙이기 */
+  margin-right: 4px;
   width: 16px;
   height: 16px;
-}
-
-.checkbox-area span {
-  white-space: nowrap;
 }
 
 .checkbox-area a {
@@ -122,13 +143,7 @@ body {
   text-decoration: none;
 }
 
-
-
-.checkbox-label {
-  white-space: nowrap; /* ✅ 한 줄 강제 유지 */
-  color: #333;
-}
-
+/* 제출 버튼 */
 .btn-submit {
   padding: 14px;
   background: linear-gradient(to right, #a4eb92, #57d26a);
@@ -141,6 +156,7 @@ body {
   margin-top: 10px;
 }
 
+/* 로그인 링크 */
 .login-link {
   font-size: 13px;
   color: #666;
@@ -153,6 +169,7 @@ body {
   text-decoration: none;
 }
 
+/* 모달 */
 .modal {
   position: fixed;
   top: 0;
@@ -197,4 +214,67 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* 💻 태블릿 이하 (768px 이하) */
+@media (max-width: 768px) {
+  .signup-container {
+    padding: 30px 16px;
+  }
+
+  .logo-circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .logo-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .signup-title {
+    font-size: 24px;
+  }
+
+  .btn-check {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+
+  .btn-submit {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* 📱 모바일 초소형 디바이스 (max 480px) */
+@media (max-width: 480px) {
+  .signup-container {
+    max-width: 100%;
+    padding: 20px 12px;
+  }
+
+  .signup-form input,
+  .signup-form select {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .toggle-password {
+    right: 8px;
+  }
+
+  .btn-check {
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  .modal-box {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .modal-box h3 {
+    font-size: 18px;
+  }
 }

@@ -18,42 +18,39 @@
     <h2 class="signup-title">회원가입</h2>
 
     <form class="signup-form" onsubmit="handleSignup(event)">
-
       <div class="id-row">
         <input type="text" id="signupId" placeholder="아이디" required />
-        <button type="button" class="btn-check">중복확인</button>
+        <button type="button" class="btn-check" onclick="checkDuplicate()">중복확인</button>
       </div>
-
+    
       <div class="pw-box">
         <input type="password" id="signupPw" placeholder="비밀번호" required />
         <span class="toggle-password" onclick="togglePassword('signupPw')">👁</span>
       </div>
-
+    
       <div class="pw-box">
         <input type="password" id="signupPwConfirm" placeholder="비밀번호 확인" required />
         <span class="toggle-password" onclick="togglePassword('signupPwConfirm')">👁</span>
       </div>
-
+    
       <input type="text" id="signupName" placeholder="이름" required />
-
-      <div class="row">
-        <input type="text" id="signupBirth" placeholder="출생년도" required />
+    
+      <div class="row birth-gender">
+        <input type="number" id="signupBirth" placeholder="출생년도" min="1945" max="2025" required />
         <select id="signupGender" required>
           <option value="">성별</option>
           <option value="남성">남성</option>
           <option value="여성">여성</option>
         </select>
       </div>
-
+    
       <label class="checkbox-area">
         <input type="checkbox" id="agreeCheck" />
         <span>약관에 동의합니다. <a href="terms.html">약관 보기</a></span>
       </label>
-            
-      
-  
+    
       <button type="submit" class="btn-submit">회원가입</button>
-    </form>
+    </form>    
 
     <p class="login-link">이미 가입하셨나요? <a href="login.html">로그인하기</a></p>
   </main>
