@@ -1,138 +1,185 @@
-/* 기본 설정 */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #e8fbe4, #f5fff4);
-  color: #2e2e2e;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 }
 
-/* 컨테이너 */
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 24px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-width: 300px;
+}
+
+.modal-box h3 {
+  font-size: 18px;
+  color: #32b768;
+  margin-bottom: 12px;
+}
+
+.modal-box p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.modal-box button {
+  padding: 8px 18px;
+  background-color: #57d26a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(346.72deg, #E8F9DB 0%, #F5FFED 53.37%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .signup-container {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 50px 20px;
+  width: 100%;
+  max-width: 340px;
+  padding: 30px 20px;
   text-align: center;
 }
 
-/* 로고 */
 .logo-circle {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 20px;
   border-radius: 50%;
   background: radial-gradient(circle at center, #baf5ce 0%, #a0e5b5 70%, #85d19a 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .logo-img {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   object-fit: contain;
 }
 
-/* 제목 */
 .signup-title {
-  font-size: 28px;
+  font-size: 24px;
+  color: #32b768;
   font-weight: bold;
-  background: linear-gradient(to right, #3dbd5d, #57d26a);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
-/* 폼 */
 .signup-form {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.signup-form input,
-.signup-form select {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 14px;
-  width: 100%;
-}
-
-/* 아이디 입력 및 중복확인 버튼 */
 .id-row {
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  align-items: center;
 }
 
 .id-row input {
   flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 14px;
 }
 
 .btn-check {
+  padding: 0 14px;
   background: #84d96d;
   border: none;
   color: white;
-  padding: 0 16px;
   border-radius: 10px;
   font-weight: bold;
-  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+  height: 44px;
+  flex-shrink: 0;
 }
 
-/* 비밀번호 입력 */
 .pw-box {
   position: relative;
 }
 
 .pw-box input {
   width: 100%;
+  padding: 12px;
   padding-right: 40px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 14px;
 }
 
 .toggle-password {
   position: absolute;
-  right: 12px;
   top: 50%;
+  right: 14px;
   transform: translateY(-50%);
   cursor: pointer;
+  font-size: 16px;
+  color: #444;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"],
+.signup-form input[type="number"],
+.signup-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 14px;
+  width: 100%;
 }
 
 .birth-gender {
   display: flex;
   gap: 10px;
-  width: 100%;
 }
 
-.birth-gender input {
-  flex: 2; /* 출생년도가 더 길게 */
-  min-width: 0;
-}
-
+.birth-gender input,
 .birth-gender select {
   flex: 1;
-  min-width: 0;
 }
 
-
-/* 약관 동의 */
 .checkbox-area {
   display: flex;
   align-items: center;
-  font-size: 14px;
-  gap: 4px;
-  margin-top: 12px;
-  cursor: pointer;
+  gap: 6px;
+  font-size: 13px;
   color: #333;
+  margin-top: 5px;
 }
 
 .checkbox-area input[type="checkbox"] {
-  margin-right: 4px;
   width: 16px;
   height: 16px;
 }
@@ -143,138 +190,26 @@ body {
   text-decoration: none;
 }
 
-/* 제출 버튼 */
 .btn-submit {
   padding: 14px;
   background: linear-gradient(to right, #a4eb92, #57d26a);
   border: none;
-  color: white;
   border-radius: 12px;
-  font-size: 16px;
+  color: white;
   font-weight: bold;
+  font-size: 15px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 6px;
 }
 
-/* 로그인 링크 */
 .login-link {
   font-size: 13px;
   color: #666;
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 .login-link a {
   color: #3dbd5d;
   font-weight: bold;
   text-decoration: none;
-}
-
-/* 모달 */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-box {
-  background-color: #fff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.modal-box h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
-  color: #333;
-}
-
-.modal-box p {
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #555;
-}
-
-.modal-box button {
-  padding: 10px 20px;
-  background-color: #32b768;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* 💻 태블릿 이하 (768px 이하) */
-@media (max-width: 768px) {
-  .signup-container {
-    padding: 30px 16px;
-  }
-
-  .logo-circle {
-    width: 90px;
-    height: 90px;
-  }
-
-  .logo-img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .signup-title {
-    font-size: 24px;
-  }
-
-  .btn-check {
-    font-size: 13px;
-    padding: 0 10px;
-  }
-
-  .btn-submit {
-    font-size: 15px;
-    padding: 12px;
-  }
-}
-
-/* 📱 모바일 초소형 디바이스 (max 480px) */
-@media (max-width: 480px) {
-  .signup-container {
-    max-width: 100%;
-    padding: 20px 12px;
-  }
-
-  .signup-form input,
-  .signup-form select {
-    font-size: 13px;
-    padding: 10px;
-  }
-
-  .toggle-password {
-    right: 8px;
-  }
-
-  .btn-check {
-    padding: 0 8px;
-    font-size: 12px;
-  }
-
-  .modal-box {
-    padding: 16px;
-    font-size: 14px;
-  }
-
-  .modal-box h3 {
-    font-size: 18px;
-  }
 }

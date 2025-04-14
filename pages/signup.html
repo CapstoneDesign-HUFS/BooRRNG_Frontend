@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>회원가입</title>
   <link rel="stylesheet" href="../css/pages/signup.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -22,20 +20,20 @@
         <input type="text" id="signupId" placeholder="아이디" required />
         <button type="button" class="btn-check" onclick="checkDuplicate()">중복확인</button>
       </div>
-    
+
       <div class="pw-box">
         <input type="password" id="signupPw" placeholder="비밀번호" required />
         <span class="toggle-password" onclick="togglePassword('signupPw')">👁</span>
       </div>
-    
+
       <div class="pw-box">
         <input type="password" id="signupPwConfirm" placeholder="비밀번호 확인" required />
         <span class="toggle-password" onclick="togglePassword('signupPwConfirm')">👁</span>
       </div>
-    
+
       <input type="text" id="signupName" placeholder="이름" required />
-    
-      <div class="row birth-gender">
+
+      <div class="birth-gender">
         <input type="number" id="signupBirth" placeholder="출생년도" min="1945" max="2025" required />
         <select id="signupGender" required>
           <option value="">성별</option>
@@ -43,47 +41,25 @@
           <option value="여성">여성</option>
         </select>
       </div>
-    
+
       <label class="checkbox-area">
         <input type="checkbox" id="agreeCheck" />
-        <span>약관에 동의합니다. <a href="terms.html">약관 보기</a></span>
+        <span>약관에 동의합니다. <a href="../pages/terms.html">약관 보기</a></span>
       </label>
-    
-      <button type="submit" class="btn-submit">회원가입</button>
-    </form>    
 
-    <p class="login-link">이미 가입하셨나요? <a href="login.html">로그인하기</a></p>
+      <button type="submit" class="btn-submit">회원가입</button>
+    </form>
+
+    <p class="login-link">이미 가입하셨나요? <a href="../pages/login.html">로그인하기</a></p>
   </main>
 
-      <!-- 🚨 비밀번호 불일치 모달 -->
-  <div class="modal hidden" id="pwErrorModal">
+  <div id="modal" class="modal hidden">
     <div class="modal-box">
-      <h3>비밀번호 오류</h3>
-      <p>비밀번호가 일치하지 않습니다.</p>
-      <button onclick="closeModal('pwErrorModal')">확인</button>
+      <h3>알림</h3>
+      <p>내용입니다</p>
+      <button onclick="closeModal()">확인</button>
     </div>
   </div>
-
-  <!-- 🚨 약관 미동의 모달 -->
-  <div class="modal hidden" id="agreeErrorModal">
-    <div class="modal-box">
-      <h3>안내</h3>
-      <p>약관에 동의하셔야 회원가입이 가능합니다.</p>
-      <button onclick="closeModal('agreeErrorModal')">확인</button>
-    </div>
-  </div>
-
-    <!-- ✅ 회원가입 성공 모달 -->
-  <div class="modal hidden" id="successModal">
-    <div class="modal-box">
-      <h3>회원가입 완료</h3>
-      <p>회원가입이 성공적으로 완료되었습니다.<br>로그인 페이지로 이동합니다.</p>
-      <button onclick="goToLogin()">확인</button>
-    </div>
-  </div>
-
-
-
 
   <script src="../js/signup.js"></script>
 </body>
