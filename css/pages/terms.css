@@ -1,10 +1,9 @@
 @import url('../variables.css');
 
 
+/* 제목 스타일 */
 h1 {
   font-size: 24px;
-  margin-bottom: 30px;
-  text-align: center;
   font-weight: bold;
   color: transparent;
   background: var(--grad-text);

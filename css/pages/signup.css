@@ -9,8 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .logo-img {
@@ -58,20 +57,28 @@
 
 .id-row {
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  align-items: center;
 }
 
 .id-row input {
   flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 14px;
 }
 
 .btn-check {
   background: var(--color-button);
   border: none;
   color: white;
-  padding: 0 16px;
   border-radius: 10px;
   font-weight: bold;
+  font-size: 13px;
+  white-space: nowrap;
+  height: 44px;
+  flex-shrink: 0;
 }
 
 .pw-box {
@@ -80,40 +87,56 @@
 
 .pw-box input {
   width: 100%;
+  padding: 12px;
   padding-right: 40px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 14px;
 }
 
 .toggle-password {
   position: absolute;
-  right: 12px;
   top: 50%;
+  right: 14px;
   transform: translateY(-50%);
   cursor: pointer;
+  font-size: 16px;
+  color: #444;
 }
 
-.row {
+.signup-form input[type="text"],
+.signup-form input[type="password"],
+.signup-form input[type="number"],
+.signup-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.birth-gender {
   display: flex;
   gap: 10px;
+}
+
+.birth-gender input,
+.birth-gender select {
+  flex: 1;
 }
 
 .checkbox-area {
   display: flex;
   align-items: center;
-  font-size: 14px;
-  gap: 4px; /* ✅ 기존보다 좁게 조정 */
-  margin-top: 12px;
-  cursor: pointer;
+  gap: 6px;
+  font-size: 13px;
   color: #333;
+  margin-top: 5px;
 }
 
 .checkbox-area input[type="checkbox"] {
-  margin-right: 4px; /* ✅ 텍스트와 붙이기 */
   width: 16px;
   height: 16px;
-}
-
-.checkbox-area span {
-  white-space: nowrap;
 }
 
 .checkbox-area a {
@@ -122,79 +145,26 @@
   text-decoration: none;
 }
 
-
-
-.checkbox-label {
-  white-space: nowrap; /* ✅ 한 줄 강제 유지 */
-  color: #333;
-}
-
 .btn-submit {
   padding: 14px;
   background: var(--color-button);
   border: none;
-  color: white;
   border-radius: 12px;
-  font-size: 16px;
+  color: white;
   font-weight: bold;
+  font-size: 15px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 6px;
 }
 
 .login-link {
   font-size: 13px;
   color: #666;
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 .login-link a {
   color: #3dbd5d;
   font-weight: bold;
   text-decoration: none;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-box {
-  background-color: #fff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.modal-box h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
-  color: #333;
-}
-
-.modal-box p {
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #555;
-}
-
-.modal-box button {
-  padding: 10px 20px;
-  background-color: #32b768;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
