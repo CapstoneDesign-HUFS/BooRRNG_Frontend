@@ -1,47 +1,88 @@
-/* variables.css 스타일 */
+/* ============================
+   Design System & Variables
+   ============================ */
 
-/* =======================
-CSS Design System Variables
-   ======================= */
+   @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Black+Han+Sans&family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@100..900&display=swap');
 
-:root {
-    /* 🎨 Color System */
-    --color-primary: #90dd00;
-    --color-primary-hover: #71ad00;
-    --color-secondary: #62ff00;
-    --color-background: #f8f9fa;
-    --color-light: #ffffff;
-    --color-dark: #343a40;
-    --color-border: #dee2e6;
-    --color-muted: #999999;
-    --color-danger: #dc3545;
-    --color-success: #28a745;
-  
-    /* ✍️ Typography */
-    --font-main: 'Noto Sans KR', sans-serif;
-    --font-size-base: 16px;
-    --font-size-sm: 14px;
-    --font-size-lg: 18px;
-    --font-size-title: 24px;
-    --font-size-subtitle: 20px;
-    --font-size-heading: 40px;
-  
-    /* 📐 Spacing */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 32px;
-    --spacing-xl: 48px;
-  
-    /* 🟦 Radius / Shadow */
-    --radius-base: 8px;
-    --radius-round: 100px;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.15);
-  
-    /* 📏 Layout */
-    --max-width-container: 1200px;
-    --height-header: 64px;
-    --height-footer: 48px;
-  }
-  
+   :root {
+     --color-background: linear-gradient(155deg, #E8F9DB, #F5FFED 53% 100%);
+     --grad-text: linear-gradient(90deg, #75cc55, #00d3a9);
+     --color-wrapper: linear-gradient(135deg, #00e3ae5b, #9ae15d51);
+     --color-button: linear-gradient(90deg, #c6f264, #8de557);
+     --color-white: #ffffff;
+   }
+   
+   /* ============================
+      Global Reset & Base Styles
+      ============================ */
+   
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Albert Sans', 'Noto Sans KR', sans-serif;
+   }
+   
+   html, body {
+     height: 100%;
+     background: var(--color-background);
+     margin: 0;
+     padding: 0;
+   }
+   
+   /* ============================
+      Layout Helpers
+      ============================ */
+   
+   /* 페이지 구조가 맨 아래 footer 포함 가능하도록 */
+   body {
+     display: flex;
+     flex-direction: column;
+   }
+   
+   main {
+     flex: 1;
+   }
+   
+   /* 중앙 정렬 컨테이너 */
+   .container {
+     max-width: 768px;
+     width: 100%;
+     margin: 0 auto;
+     padding: 2rem;
+   }
+   
+   /* ============================
+      UI Components
+      ============================ */
+   
+   .btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+     transition: all 0.3s ease;
+     cursor: pointer;
+   }
+   
+   .btn:active {
+     transform: scale(0.98);
+     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+   }
+   
+   /* Terms 박스 스타일 */
+   .terms-box {
+     background: #ffffffcc;
+     padding: 1.5rem;
+     border-radius: 0.75rem;
+     margin-bottom: 2rem;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+   }
+   
+   /* Footer 스타일 (옵션) */
+   footer {
+   background: #f0f0f0;
+   text-align: center;
+   padding: 1rem;
+   font-size: 0.9rem;
+   color: #333;
+   }
+   

@@ -1,26 +1,5 @@
-/* 기본 스타일 */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  background: linear-gradient(to bottom, #e8fbe4, #f5fff4);
-  color: #2e2e2e;
-}
+@import url('../variables.css');
 
-header, footer {
-  background: transparent;
-  padding: 20px;
-  text-align: center;
-}
-
-.terms-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  position: relative;
-}
 
 h1 {
   font-size: 24px;
@@ -28,31 +7,15 @@ h1 {
   text-align: center;
   font-weight: bold;
   color: transparent;
-  background: linear-gradient(to right, #3dbd5d, #57d26a);
+  background: var(--grad-text);
   -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-text-fill-color: transparent;
   position: relative;
 }
 
-.back-btn {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  text-decoration: none;
-  color: #57d26a;
-  font-weight: bold;
-  background: #e8fbe4;
-  padding: 8px 12px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: background 0.3s, color 0.3s;
-}
 
 .back-btn:hover {
-  background: #d0f0d0;
-  color: #2e2e2e;
+  cursor: pointer;
 }
 
 h2 {
@@ -82,28 +45,56 @@ h2 {
   margin-bottom: 10px;
 }
 
-.terms-box li {
-  margin-bottom: 6px;
-  list-style-type: disc;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-  .terms-container {
-    margin: 20px;
-    padding: 20px;
-  }
+h1 {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
 
-  h1 {
-    font-size: 20px;
-  }
+h1 button {
+  font-size: 1.2rem;
+  border: none;
+  background: none;
+  color: #198754;
+  transition: color 0.2s ease;
+}
 
-  h2 {
-    font-size: 16px;
-  }
+h1 button:hover {
+  color: #0f5132;
+}
 
-  .back-btn {
-    font-size: 18px;
-    padding: 6px 10px;
-  }
+h2 {
+  font-weight: 700;
+  color: #495057;
+  margin-top: 2rem;
+}
+
+.terms-box {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.terms-box p {
+  margin-bottom: 1rem;
+  color: #343a40;
+}
+
+.terms-box ul {
+  padding-left: 1.2rem;
+  color: #212529;
+}
+
+.terms-box li {
+  line-height: 1.7;
 }
