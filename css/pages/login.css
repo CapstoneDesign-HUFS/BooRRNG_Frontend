@@ -1,47 +1,80 @@
-body {
-  margin: 0;
-  background: linear-gradient(to bottom, #e8fbe4, #f5fff4);
-  font-family: 'Arial', sans-serif;
-}
+@import url('../variables.css');
 
-.login-wrapper {
-  max-width: 360px;
-  margin: 60px auto;
-  padding: 30px 20px;
-  text-align: center;
-}
 
-.logo-circle {
-  width: 130px;
-  height: 130px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #baf5ce 0%, #a0e5b5 70%, #85d19a 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.1),
-    inset 0 4px 8px rgba(255, 255, 255, 0.5),
-    inset 0 -4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.logo-img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    background: var(--color-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-wrapper {
+    text-align: center;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* ✨ 중앙 정렬 핵심 */
+  }
+  
+  .logo-circle {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    background: var(--color-wrapper);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.05),     /* 기본 그림자 */
+      inset 0 4px 8px rgba(255, 255, 255, 0.5), /* 내부 빛감 */
+      inset 0 -4px 6px rgba(0, 0, 0, 0.05);     /* 입체감 */
+  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .logo-circle::after {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    z-index: 0;
+  }
+  
+  .logo-img {
+    width: 140px;
+    height: 153px;
+    object-fit: contain;  /* 또는 cover: 이미지에 따라 다르게 실험 */
+    display: block;
+    margin: 0;
+    padding: 0;
+    transform: translate(-2px, -2px);
+  }
 
 .login-title {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: bold;
-  color: #3dbd5d;
-  margin: 16px 0 30px;
-}
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;}
 
 .login-form {
   display: flex;
   flex-direction: column;
+  width: 340px;
   gap: 16px;
   text-align: left;
 }
@@ -88,12 +121,19 @@ body {
 
 .btn-login {
   padding: 14px;
-  background: linear-gradient(to right, #a4eb92, #57d26a);
+  background: var(--color-button);
   border: none;
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   border-radius: 16px;
   cursor: pointer;
+  margin-bottom: 80px;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 .signup-link {
@@ -128,5 +168,4 @@ body {
 }
 
 .hidden {
-  display: none !important;
-}
+  display: none !important};

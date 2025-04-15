@@ -1,131 +1,113 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* ============================Onboarding Page Style
+   ============================ */
+
+@import url('variables.css');
+
+.onboarding-container {
+  text-align: center;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* ✨ 중앙 정렬 핵심 */
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  background: var(--color-wrapper);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.05),     /* 기본 그림자 */
+    inset 0 4px 8px rgba(255, 255, 255, 0.5), /* 내부 빛감 */
+    inset 0 -4px 6px rgba(0, 0, 0, 0.05);     /* 입체감 */
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.logo-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.onboarding-img {
+  width: 140px;
+  height: 153px;
+  object-fit: contain;  /* 또는 cover: 이미지에 따라 다르게 실험 */
+  display: block;
+  margin: 0;
+  padding: 0;
+  transform: translate(-2px, -2px);
+}
+
+
+
+.onboarding-title {
+  font-size: 48px;
+  font-weight: bold;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.onboarding-desc {
+  font-size: 24px;
+  font-family: 'Albert Sans', sans-serif;
+  color: #666666;
+  letter-spacing: 1px;
+  margin-bottom: 100px;
+  font-weight: bold
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.button-group .btn {
+  border-radius: 12px; /* 🎯 딱 부드러운 사각형 느낌 */
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;        /* ✅ 밑줄 제거 */
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 20px 0;
+  width: 340px;
+  height:60px;
+  text-align: center;
+  line-height: 100%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-signup {
+background: var(--color-button);
+color: white;
+}  
+
+.btn-login {
+  background-color: white;
+  color: #666666;
+}
+
+
   
-  html, body {
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #e8fbe4, #f5fff4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .onboarding-container {
-    text-align: center;
-    padding: 20px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* ✨ 중앙 정렬 핵심 */
-  }
-  
-  .logo-wrapper {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle at center, #e6fce6 0%, #d3f5dd 60%, #c0ebce 100%);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-  
-    box-shadow:
-      0 4px 8px rgba(0, 0, 0, 0.05),     /* 기본 그림자 */
-      inset 0 4px 8px rgba(255, 255, 255, 0.5), /* 내부 빛감 */
-      inset 0 -4px 6px rgba(0, 0, 0, 0.05);     /* 입체감 */
-  
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .logo-wrapper::after {
-    content: '';
-    position: absolute;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-    z-index: 0;
-  }
-  
-  .onboarding-img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;  /* 또는 cover: 이미지에 따라 다르게 실험 */
-    display: block;
-    margin: 0;
-    padding: 0;
-    transform: translate(-2px, -2px);
-  }
-  
-  .titles{
-    margin: 40px 0 100px;
-  }
-  
-  .onboarding-title {
-    font-size: 40px;
-    font-weight: bold;
-    color: #3dbd5d;
-    margin-bottom: 8px;
-  }
-  
-  .onboarding-desc {
-    font-size: 20px;
-    color: #555;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
-    font-weight: 200px
-  }
-  
-  .button-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    margin-top: 20px;
-  }
-  
-  .button-group .btn {
-    border-radius: 12px; /* 🎯 딱 부드러운 사각형 느낌 */
-  }
-  
-  .btn {
-    display: inline-block;
-    text-decoration: none;        /* ✅ 밑줄 제거 */
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 30px;
-    padding: 14px 0;
-    width: 260px;
-    text-align: center;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-  }
-  
-  /* ✅ 새로 시작하기 버튼 (그라데이션) */
-  .btn-primary {
-    background: linear-gradient(to right, #a4eb92, #57d26a);
-    color: white;
-    border: none;
-  }
-  
-  /* ✅ 로그인 버튼 (화이트+테두리) */
-  .btn-outline {
-    background: white;
-    color: #333;
-    border: 2px solid #ddd;
-  }
-  
-  /* ✅ 호버 효과 */
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-  }
-  
-  .btn:active {
-    transform: scale(0.98);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  }
