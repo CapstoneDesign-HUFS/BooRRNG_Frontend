@@ -1,12 +1,12 @@
 let map;
 
-// DOM 로드 이후 초기화
 document.addEventListener('DOMContentLoaded', () => {
   initTmap();
   setupSearch();
+  setupArrivalTrigger();
 });
 
-// Tmap 지도 초기화
+// Tmap 초기화
 function initTmap() {
   map = new Tmapv2.Map("map", {
     center: new Tmapv2.LatLng(37.566481622437934, 126.98502302169841), // 서울 중심
@@ -16,7 +16,7 @@ function initTmap() {
   });
 }
 
-// 검색창 처리
+// 검색 기능
 function setupSearch() {
   const form = document.getElementById("searchForm");
   const input = document.getElementById("searchInput");
@@ -33,7 +33,7 @@ function setupSearch() {
       const data = await response.json();
 
       if (data.searchPoiInfo.pois.poi.length > 0) {
-        const poi = data.searchPoiInfo.pois.poi[0]; // 첫 번째 결과
+        const poi = data.searchPoiInfo.pois.poi[0];
         const lat = parseFloat(poi.frontLat);
         const lon = parseFloat(poi.frontLon);
 
@@ -50,4 +50,32 @@ function setupSearch() {
       alert("검색 중 오류가 발생했습니다.");
     }
   });
+}
+
+// 도착 버튼 클릭 시 도착 정보 표시
+function setupArrivalTrigger() {
+  const btn = document.getElementById("arrivedBtn");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      const arrivedBox = document.getElementById("arrivedBox");
+
+      if (arrivedBox) {
+        arrivedBox.classList.remove("hidden");
+
+        const timeSpan = arrivedBox.querySelector("div:nth-child(2) span:nth-child(2)");
+        const distSpan = arrivedBox.querySelector("div:nth-child(3) span:nth-child(2)");
+        const speedSpan = arrivedBox.querySelector("div:nth-child(4) span:nth-child(2)");
+
+        if (timeSpan) timeSpan.textContent = "23";
+        if (distSpan) distSpan.textContent = "1.8";
+        if (speedSpan) speedSpan.textContent = "4.2";
+
+        // 다른 UI 요소 숨기기
+        document.getElementById("speedAlertBox")?.classList.add("hidden");
+        document.getElementById("routeInfoBox")?.classList.add("hidden");
+        document.getElementById("routeHeader")?.classList.add("hidden");
+        document.getElementById("trafficSignal")?.classList.add("hidden");
+      }
+    });
+  }
 }
