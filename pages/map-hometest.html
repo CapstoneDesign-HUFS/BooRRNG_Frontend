@@ -1,63 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Map Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/pages/map.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header id="header"></header>
 
-  <main class="container py-4">
-    <form id="searchForm" class="d-flex gap-2 mb-3" role="search">
-      <input class="form-control me-2" type="search" id="searchInput" placeholder="목적지 검색" aria-label="Search">
-      <button class="btn btn-primary" type="submit" title="검색"><i class="bi bi-search"></i></button>
+  <div id="map"></div>
+
+  <div class="search-bar">
+    <form id="searchForm">
+      <input id="searchInput" type="text" placeholder="목적지 검색" />
+      <button type="submit">🔍</button>
     </form>
+  </div>
 
-    <!-- 안내 텍스트 -->
-    <div id="mapPlaceholder" class="text-muted text-center py-5">
-      검색 시 지도가 아래에 표시됩니다.
+  <div id="bottomSheet" class="bottom-sheet">
+    <div class="sheet-handle"></div>
+    <ul id="searchResults"></ul>
+  </div>
+
+  <div id="trafficSignal" class="traffic-signal hidden">
+    <span id="signalTime">32</span>
+  </div>
+
+  <div id="routeHeader" class="route-header hidden">
+    <span id="routePath"><span>출발지</span> <b>→</b> <span>목적지</span></span>
+    <a id="headingClose" class="close-btn">×</a>
+  </div>
+
+  <div id="routeInfoBox" class="route-info-box hidden">
+    <div>
+      <div>예상소요시간 <span id="expectedTime">25분</span></div>
+      <div>예상이동거리 <span id="expectedDistance">1.2km</span></div>
     </div>
+    <button id="speedGuideBtn">🚶‍♂️ 속도안내</button>
+  </div>
 
-    <!-- 지도 결과 iframe -->
-    <iframe 
-      id="mapFrame"
-      src=""
-      width="100%"
-      height="500"
-      frameborder="0"
-      style="border: none; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: none;">
-    </iframe>
-  </main>
+  <div id="speedAlertBox" class="speed-alert hidden">
+    <div>
+      <div id="speedMsg">
+        <span class="text-danger">더 빨리</span> 이동하면<br />
+        <span class="text-primary">더 천천히</span> 이동하면<br />
+        다음 신호 대기 없이 건널 수 있어요!
+      </div>
+      <div class="info">
+        <b>추천속도</b> <span id="recommendedSpeed">-</span> m/s<br>
+        <b>현재속도</b> <span id="currentSpeed">-</span> m/s
+      </div>
+      <button id="arrivedBtn">도착했어요</button>
+    </div>
+  </div>
 
-  <footer id="footer"></footer>
+  <div id="arrivedBox" class="arrival-box hidden">
+    <h5>목적지에 도착했습니다</h5>
+    <div><span>소요시간</span><span>25</span>분</div>
+    <div><span>이동거리</span><span>1.2</span>km</div>
+    <div><span>평균속도</span><span>5.7</span>km/h</div>
+    <a href="javascript:location.reload()">❌</a>
+  </div>
 
-  <!-- JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/include.js"></script>
 
-  <script>
-    document.getElementById("searchForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+    <!-- ✅ 공통 푸터 위치 -->
+    <footer id="footer"></footer>
 
-      const keyword = document.getElementById("searchInput").value.trim();
-      const iframe = document.getElementById("mapFrame");
-      const placeholder = document.getElementById("mapPlaceholder");
-
-      if (!keyword) {
-        alert("검색어를 입력해주세요.");
-        return;
-      }
-
-      // 예시: 네이버 지도 검색 결과 페이지
-      const url = `https://map.naver.com/v5/search/${encodeURIComponent(keyword)}`;
-      iframe.src = url;
-      iframe.style.display = "block";
-      placeholder.style.display = "none";
-    });
-  </script>
+  <!-- ✅ footer2.js 삽입 -->
+  <script src="../js/footer2.js"></script>
+  <!-- Scripts -->
+  <script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=L3RMA32ZfO5WRNvNlGBCBKuXpGjYV3dlmWlETWb0"></script>
+  <script src="../js/map.js"></script>
 </body>
 </html>
